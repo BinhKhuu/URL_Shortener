@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/spoonable/URL_Shortener#readme",
   "dependencies": {
-    "express": "^4.16.1"
+    "express": "^4.16.1",
+    "path": "^0.12.7"
   }
 }
