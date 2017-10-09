@@ -1,0 +1,22 @@
+{
+  "name": "url_shortener",
+  "version": "0.0.1",
+  "description": "pass url as a parameter and recieve a shortned URL in JSON",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spoonable/URL_Shortener.git"
+  },
+  "author": "binh khuu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spoonable/URL_Shortener/issues"
+  },
+  "homepage": "https://github.com/spoonable/URL_Shortener#readme",
+  "dependencies": {
+    "express": "^4.16.1"
+  }
+}
