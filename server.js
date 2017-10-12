@@ -10,9 +10,9 @@ var app = express();
 var port = Number(process.env.PORT || 8080);
 
 
-mongoose.connect('mongodb://' + config.db.host + '/' + config.db.name, (err,db)=>{
+mongoose.connect(config.db.url, (err,db)=>{
 	if(err) throw err;
-	console.log('MongoDB connected on '+ config.db.host + '/' + config.db.name);
+	console.log('MongoDB connected on '+ config.db.url);
 });
 
 

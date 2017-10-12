@@ -1,9 +1,6 @@
 var config = {};
 config.db = {};
-//config.webhost = 'http://localhost:8080/';
-config.webhost = process.env.MONGOLAB_URI;
-
-config.db.host = 'ds117615.mlab.com:17615';
-config.db.name = 'url_shortener';
+config.webhost = 'shrouded-garden-43532/';
+config.db.url = process.env.MONGOLAB_URI;
 
 module.exports = config;
