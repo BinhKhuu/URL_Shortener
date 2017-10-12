@@ -17,7 +17,11 @@
   },
   "homepage": "https://github.com/spoonable/URL_Shortener#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.1",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.12.1",
+    "openurl": "^1.1.1",
     "path": "^0.12.7"
   }
 }
