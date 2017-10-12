@@ -60,10 +60,3 @@ app.get('/:id([a-zA-Z0-9]*)', (req,res)=>{
 app.listen(port,()=>{
 	console.log('listening on port: ' + port.toString());
 })
-
-
-/*!!!!!!!!!!! 
-	make heroku site
-	fix links in config.js
-
-*/
