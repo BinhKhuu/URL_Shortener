@@ -11,7 +11,7 @@ var port = Number(process.env.PORT || 8080);
 
 
 mongoose.connect(config.db.url, (err,db)=>{
-	if(err) throw err;
+	if(err) console.log(err);
 	console.log('MongoDB connected on '+ config.db.url);
 });
 
@@ -31,9 +31,7 @@ app.get('/short/:link(https?:\/\/www\.[a-zA-Z0-9]+.[a-z]{2,6}([a-zA-Z0-9@:%_\+.~
 			);
 			
 			newUrl.save((err)=>{
-				if(err) {
-					console.log(err);
-				}
+				if(err) console.log(err);
 				shortUrl = config.webhost + base58.encode(newUrl._id);
         res.send({'shortUrl': shortUrl});
 			});
@@ -47,7 +45,7 @@ app.get('/:id([a-zA-Z0-9]*)', (req,res)=>{
 	var id = base58.decode(en);
 	console.log(en);
 	url.findOne({_id: id}, (err,doc)=>{
-		if(err) throw err;
+		if(err) console.log(err);
 		if(doc) {
 			res.redirect(doc.long_url);
 		} else {
