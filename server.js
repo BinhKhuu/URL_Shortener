@@ -8,13 +8,12 @@ var mongo = require('mongodb');
 var path = require('path');
 var app = express();
 var port = Number(process.env.PORT || 8080);
-
+app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose.connect(config.db.url, (err,db)=>{
 	if(err) console.log(err);
 	console.log('MongoDB connected on '+ config.db.url);
 });
-
 
 //shorten url route
 app.get('/short/:link(https?:\/\/www\.[a-zA-Z0-9]+.[a-z]{2,6}([a-zA-Z0-9@:%_\+.~#?&//=])*)', (req,res)=>{
@@ -43,18 +42,20 @@ app.get('/short/:link(https?:\/\/www\.[a-zA-Z0-9]+.[a-z]{2,6}([a-zA-Z0-9@:%_\+.~
 app.get('/:id([a-zA-Z0-9]*)', (req,res)=>{
 	var en = req.params.id;
 	var id = base58.decode(en);
-	console.log(en);
 	url.findOne({_id: id}, (err,doc)=>{
 		if(err) console.log(err);
 		if(doc) {
 			res.redirect(doc.long_url);
 		} else {
-			res.redirect(config.webhost);
+			res.sendFile(path.join(__dirname + '/public/index.html'));
 		}
-
 	});
 });
 
 app.listen(port,()=>{
 	console.log('listening on port: ' + port.toString());
 })
+
+//todo 
+//make index.html
+//add redirects for incorrect urls
